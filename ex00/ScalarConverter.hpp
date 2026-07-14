@@ -3,6 +3,17 @@
 
 #include <exception>
 #include <iostream>
+#include <cctype>
+
+enum LiteralType
+{
+	INVALID,
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	PSEUDO
+};
 
 class ScalarConverter
 {
@@ -11,11 +22,16 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter& other);
 		ScalarConverter& operator=(const ScalarConverter& other);
 		~ScalarConverter();
-
+		static bool isValidLiteral(const std::string& s);
+		static bool isPseudoLiteral(const std::string& s);
+		static bool isCharLiteral(const std::string& s);
+		static bool isIntLiteral(const std::string& s);
+		static bool isDoubleLiteral(const std::string& s);
+		static bool isFloatLiteral(const std::string& s);
 	public:
 		static void convert(const std::string& literal);
 	
-	class ImpossibleException : public std::exception
+	class InvalidLiteralException : public std::exception
 	{
 		public:
 			const char* what() const throw();

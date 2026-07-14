@@ -1,4 +1,4 @@
-SRC = ScalerConverter.cpp
+SRC = ScalarConverter.cpp LiteralType.cpp main.cpp
 
 CXX = c++
 
