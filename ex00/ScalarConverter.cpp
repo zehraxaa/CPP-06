@@ -21,6 +21,11 @@ void ScalarConverter::convert(const std::string &literal)
 	{
 		if (!isValidLiteral(literal))
 			throw InvalidLiteralException();
+
+		LiteralType type = detectType(literal);
+
+		double value = parseLiteral(literal, type);
+		convertChar(value);
 	}
 	catch (const std::exception &e)
 	{

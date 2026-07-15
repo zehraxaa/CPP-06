@@ -4,6 +4,9 @@
 #include <exception>
 #include <iostream>
 #include <cctype>
+#include <limits>
+#include <cstdlib>
+#include <cmath>
 
 enum LiteralType
 {
@@ -28,6 +31,13 @@ class ScalarConverter
 		static bool isIntLiteral(const std::string& s);
 		static bool isDoubleLiteral(const std::string& s);
 		static bool isFloatLiteral(const std::string& s);
+		static LiteralType detectType(const std::string& s);
+		static double parseLiteral(const std::string& literal, LiteralType type);
+		static void convertChar(double value);
+		static void convertInt(double value);
+		// static void convertFloat(double value);
+		// static void convertDouble(double value);
+
 	public:
 		static void convert(const std::string& literal);
 	
