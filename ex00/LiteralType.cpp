@@ -82,7 +82,7 @@ bool ScalarConverter::isDoubleLiteral(const std::string& s)
 
 	size_t dotPos = s.find('.');
 
-	if (countDot != 1 || dotPos == i || !std::isdigit(s[dotPos - 1]))
+	if (countDot != 1 || dotPos == i-1 || !std::isdigit(s[dotPos - 1]))
 		return false;
 
 	std::cout<<"double variable"<<std::endl;

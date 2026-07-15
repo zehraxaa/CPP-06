@@ -40,8 +40,7 @@ class ScalarConverter
 
 #endif
 
-/* her skaler veri tipini kontrol eden fonksiyonun içerisinde cout<<"int: "; diye başlayacak mesela. 
- stdendl yapmayacak, eğer geçiyorsa karşılığını yazdıracak, geçmiyorsa da exception fırlatacak. sonra tüm bu
- fonksiyonları convert fonksiyonu içerisinde try-catch bloğu içerisinde çağırınca hata varsa yazdıracak.
- ya da converter fonksiyonunda hata tiplerine göre integer bir değer döndürüp maindeki try-catchde de bu 
- exceptionı yakalayabilir. */
+/* tek bir exception olacak o da "invalid literal type" exceptionu. çünkü diğer
+int: impossible gibi olanlar bir hata değil, beklenen bir davranış. dolayısıyla da
+convert fonksiyonu içinde tek bir try-catch olacak, exception orda yakalanıp main
+fonksiyonunda dümdüz convert fonksiyonu çağrıldığında zaten hata yazdırılmış olacak */
