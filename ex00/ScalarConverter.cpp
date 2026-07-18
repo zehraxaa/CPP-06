@@ -26,6 +26,9 @@ void ScalarConverter::convert(const std::string &literal)
 
 		double value = parseLiteral(literal, type);
 		convertChar(value);
+		convertInt(value);
+		convertFloat(value);
+		convertDouble(value);
 	}
 	catch (const std::exception &e)
 	{

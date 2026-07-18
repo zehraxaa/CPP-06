@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-bool ScalarConverter::isValidLiteral(const std::string &s)
+bool isValidLiteral(const std::string &s)
 {
 	if (isPseudoLiteral(s))
 		return true;
@@ -15,28 +15,22 @@ bool ScalarConverter::isValidLiteral(const std::string &s)
 	return false;
 }
 
-bool ScalarConverter::isPseudoLiteral(const std::string &s)
+bool isPseudoLiteral(const std::string &s)
 {
 	if (s == "nan" || s == "nanf" || s == "+inf" ||
 		s == "-inf" || s == "+inff" || s == "-inff")
-		{
-			std::cout<<"pseudo variable"<<std::endl;
 			return true;
-		}
 	return false;
 }
 
-bool ScalarConverter::isCharLiteral(const std::string& s)
+bool isCharLiteral(const std::string& s)
 {
 	if (s.length() == 1 && !std::isdigit(s[0]))
-	{
-		std::cout<<"char variable"<<std::endl;
 		return true;
-	}
 	return false;
 }
 
-bool ScalarConverter::isIntLiteral(const std::string &s)
+bool isIntLiteral(const std::string &s)
 {
 	size_t i = 0;
 
@@ -52,11 +46,10 @@ bool ScalarConverter::isIntLiteral(const std::string &s)
 			return false;
 		i++;
 	}
-	std::cout<<"int variable"<<std::endl;
 	return true;
 }
 
-bool ScalarConverter::isDoubleLiteral(const std::string& s)
+bool isDoubleLiteral(const std::string& s)
 {
 	int countDot = 0;
 	bool hasDigit = false;
@@ -85,11 +78,10 @@ bool ScalarConverter::isDoubleLiteral(const std::string& s)
 	if (countDot != 1 || dotPos == i-1 || !std::isdigit(s[dotPos - 1]))
 		return false;
 
-	std::cout<<"double variable"<<std::endl;
 	return hasDigit;
 }
 
-bool ScalarConverter::isFloatLiteral(const std::string &s)
+bool isFloatLiteral(const std::string &s)
 {
 	int countDot = 0;
 	bool hasDigit = false;
@@ -117,6 +109,5 @@ bool ScalarConverter::isFloatLiteral(const std::string &s)
 	if ((countDot != 1 || s[dotPos + 1] == 'f' || !std::isdigit(s[dotPos-1])) || (s[i] != 'f'))
 		return false;
 
-	std::cout<<"float variable"<<std::endl;
 	return hasDigit;
 }
